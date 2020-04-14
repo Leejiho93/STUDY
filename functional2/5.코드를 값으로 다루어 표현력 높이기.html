@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코값표높</title>
+</head>
+<body>
+    <script>
+        const go = (...args) => (reduce((a, f) => f(a) ,args)); 
+        const pipe = (...fs) => (a) => go(a, ...fs)
+
+        go(
+            0, 
+            a => a + 1,
+            a => a + 10,
+            a => a + 100,
+            console.log
+        )
+
+        const f = pipe(
+            a => a + 1,
+            a => a + 10,
+            a => a + 100
+        )
+
+        console.log(f(0));
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>map, filter, reduce</title>
+    <script src="./lib/fx.js"></script>
+</head>
+
+<body>
+    #map
+    <script>
+        const arr = [1, 2, 3, 4, 5];
+        console.log(arr.map(a => a + 1));
+
+        const products = [
+            { name: '반팔티', price: 15000 },
+            { name: '긴팔티', price: 20000 },
+            { name: '핸드폰케이스', price: 15000 },
+            { name: '후드티', price: 30000 },
+            { name: '바지', price: 25000 }
+        ];
+
+        console.log(
+            map((a) => a.price, products)
+        )
+
+        console.log(
+            map((a) => a.name, products)
+        )
+
+        function* gen() {
+            yield 1;
+            if (false) yield 2;
+            yield 3;
+        }
+        console.log(gen)
+        let it = gen();
+
+        console.log(map((a) => a * 2, gen()))
+        for (const a of gen()) console.log(a);
+
+        let m = new Map();
+        m.set('a', 10);
+        m.set('b', 20);
+        console.log(...(new Map(map(([k, a]) => [k, a * 2], m))));
+        console.clear();
+
+    </script>
+
+    #filter
+    <script>
+        let under20000 = [];
+        for (const a of products) {
+            if (a.price < 20000) under20000.push(a);
+        }
+
+        console.log(...under20000);
+        console.log(...filter((p) => p.price < 20000, products));
+
+        console.log(filter(n => n % 2 === 0, function* () {
+            yield 1;
+            yield 2;
+            yield 3;
+            yield 4;
+            yield 5;
+            yield 6;
+        }()));
+
+        console.clear();
+    </script>
+
+    #reduce
+    <script>
+        const nums = [1, 2, 3, 4, 5];
+        let total = 0;
+
+        for (const n of nums) {
+            total = total + n;
+        }
+
+        console.log(total);
+
+        console.log('총 급액: ', reduce((total, product) => total + product.price, 0, products))
+
+        console.log(reduce((a, b) => a + b, 0, [1, 2, 3, 4, 5, 6]));
+        console.log(reduce((a, b) => a + b, [1, 2, 3, 4, 5, 6]));
+
+        const add = (a, b) => {
+            return a + b;
+        }
+
+        console.log(reduce(
+            add,
+            filter(a => a <= 20000,
+                map(a => a.price, products))
+        ))
+
+        console.log(reduce(
+            add,
+            map(p => p.price,
+                filter(p => p.price > 20000, products)
+            )
+        ))
+
+        console.clear()
+
+        console.log(
+            reduce((total, p) => total + p,
+                map(p => p.price,
+                    filter(p => p.price < 20000, products))));
+
+
+        console.log(
+            reduce((total, price) => total + price,
+                filter(p => p > 20000,
+                    map(p => p.price, products)))
+        )
+    </script>
+</body>
+
+</html>

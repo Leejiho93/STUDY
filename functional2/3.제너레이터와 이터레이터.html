@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제너레이터와 이터레이터</title>
+</head>
+<body>
+    <script>
+        console.log('제너레이터와 이터레이터');
+        // 이터레이터는 Symbol.iterator 를 가지고 있고  () 실행 결과는 자기자신 iter[Symbol.iterator]() = iter 이다. 
+        function *gen() {
+            yield 1;
+            yield 2;
+            yield 3;
+        }
+
+        let iter = gen();
+        // console.log(iter.next());
+        // for ( const a of iter) console.log(a);
+
+        function *infinity(i = 0) {
+            while(true) yield i++;
+        }
+
+        function *limit(l, iter) {
+            for (const a of iter) {
+                yield a;
+                if (a == l) return;
+            }
+        }
+
+        function *odds(l) {
+            for (const a of limit(l, infinity(1))) {
+                if (a % 2) yield a;
+            }
+        }
+
+        let iter5 = odds(10);
+        for (const a of iter5) console.log(a);
+
+        let iter6 = infinity();
+        console.log(iter6.next());
+        console.log(iter6.next());
+        console.log(iter6.next());
+        console.log(iter6.next());
+        console.log(iter6.next());
+        console.log(iter6.next());
+        console.log(iter6.next());
+        console.log(iter6.next());
+
+        
+        for (const a of odds(20)) console.log(a);
+        console.clear();
+
+        console.log([1, 2, 3, ...odds(20), ...odds(10)])
+        var q = {
+            q: 'hi',
+            p: 'pppp'
+        }
+
+        var b = {
+            q: 'wow',
+            b: 'bbb'
+        }
+        console.log({...q, ...b})
+
+        const [head, ...tail] = odds(5);
+        console.log('head: ', head, 'tail: ', tail)
+
+        // console.log(document.querySelectorAll('*'));
+        // console.log('---set---');
+        // const set2 = new Set([1, 3, 2, 3]);
+        // for (const a of set2) console.log(a);
+
+        
+
+    </script>
+</body>
+</html>
