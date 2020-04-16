@@ -1,22 +1,67 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>코값표높</title>
+    <script src="./lib/fx.js"></script>
 </head>
+
 <body>
     <script>
-        const go = (...args) => (reduce((a, f) => f(a) ,args)); 
-        const pipe = (...fs) => (a) => go(a, ...fs)
+        const products = [
+            { name: '반팔티', price: 15000 },
+            { name: '긴팔티', price: 20000 },
+            { name: '핸드폰케이스', price: 15000 },
+            { name: '후드티', price: 30000 },
+            { name: '바지', price: 25000 }
+        ];
+
+
+        console.log(
+            reduce((total, p) => total + p,
+                map(p => p.price,
+                    filter(p => p.price < 20000, products))));
+
+        console.clear()
+
+        const go = (...args) => (reduce((a, f) => f(a), args));
+        const pipe = (f, ...fs) => (...as) => go(f(...as), ...fs)
+
+        const add = (a, b) => a + b;
 
         go(
-            0, 
+            0,
             a => a + 1,
             a => a + 10,
             a => a + 100,
             console.log
+        );
+
+        const total_price = pipe(
+            map(p => p.price),
+            reduce(add)
         )
+
+        const base_total_price = predi => pipe(
+            filter(predi),
+            total_price,
+        )
+
+        go(
+            products,
+            base_total_price(p => p.price < 20000),
+            console.log
+        );
+
+        go(
+            products,
+            products => filter(p => p.price >= 20000, products),
+            products => map(p => p.price, products),
+            products => reduce(add, products),
+            console.log
+        );
 
         const f = pipe(
             a => a + 1,
@@ -25,6 +70,16 @@
         )
 
         console.log(f(0));
+
+        const mult = curry((a, b) => a * b);
+
+        console.log(mult(1))
+
+
+
+
+        
     </script>
 </body>
+
 </html>

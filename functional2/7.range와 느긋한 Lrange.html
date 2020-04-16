@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>range</title>
+    <script src="lib/fx.js"></script>
+</head>
+
+<body>
+    ## range
+    <script>
+        const add = (a, b) => a + b;
+        // const range = l => {
+        //     res = [];
+        //     for (let i = 0; i < l; i++) {
+        //         res.push(i);
+        //     }
+        //     return res;
+        // };
+        const range = l => {
+            let res = [];
+            let i = -1;
+            while (++i < l) {
+                res.push(i);
+            }
+            return res;
+        };
+
+        var list = range(4);
+        console.log(list);
+        console.log(reduce(add, list));
+    </script>
+
+    ## 느긋한 L.range
+    <script>
+
+        // var list = L.range(4);
+        // console.log(list);
+        // console.log(reduce(add, list));
+    </script>
+
+    <script>
+
+        function test(name, time, f) {
+            console.time(name);
+            while (time--) f();
+            console.timeEnd(name);
+        }
+
+        // test('range', 10, () => reduce(add, range(1000000)))
+        // test('L.range', 10, () => reduce(add, L.range(1000000)))
+        // console.clear();
+    </script>
+
+    #take
+    <script>
+
+
+        // console.time('');
+        // // console.log(take(5, range(100000000)));   // range 매개변수만큼 뽑고 5개 끊음 
+        // go(
+        //     range(1000),
+        //     take(5),
+        //     reduce(add),
+        //     console.log
+        //  )
+
+        // console.timeEnd('');
+
+        // console.time('');
+        // console.log(take(5, L.range(100000000))); // 5개만 끊음
+        // console.timeEnd('');
+
+
+    </script>
+
+    <script>
+        var ran = L.range(4);
+        var it = L.filter(a => a % 2,ran)
+        console.log(take(3, it));
+        
+        // console.clear();
+    </script>
+
+
+    <script>
+
+        go(
+            range(10),
+            map(n => n + 10),
+            filter(n => n % 2),
+            take(2),
+            console.log
+        )
+    </script>
+
+    <script>
+        // go(
+        //     L.range(10),
+        //     L.map(n => n + 10),
+        //     L.filter(n => n % 2),
+        //     take(2),
+        //     console.log
+        // )
+
+        
+    </script>
+</body>
+
+</html>

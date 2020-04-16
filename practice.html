@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js연습</title>
+</head>
+
+<body>
+    <div id="Buzzer1">버저</div>
+    <script>
+        // const buzzer = {
+        //     name: 'Buzzer1',
+        //     addClickEvent() {
+        //         this.element = document.getElementById(this.name);
+        //         this.element.addEventListener('click', () => {  // buzzerElement에 다시 this 바인드를 하지 않아도 의도한 대로 실행된다.
+        //             console.log(this.name + ' buzzing!');
+        //             document.body.removeChild(this.element);
+        //         });
+        //     }
+        // };
+
+        // buzzer.addClickEvent();
+        // var buzzer = {
+        //     name: 'Buzzer1',
+        //     addClickEventt: function () {
+        //         this.element = document.getElementById(this.name);
+        //         console.log(this);
+        //         var logNameAndRemoveButton = function () {
+        //             console.log(this.name + ' buzzing!');
+        //         }
+
+        //         this.element.addEventListener('click', logNameAndRemoveButton.bind(this)) // logNameAndRemoveButton 핸들러 함수 실행시 this 객체가 엘리먼트 객체 이므로 "bind(this)"를 이용해서 this객체를 지정해준다.
+        //     }
+        // };
+
+        // buzzer.addClickEventt();  
+        // console.log(buzzer.element);
+
+        const iterable = {
+            [Symbol.iterator]() {
+                let i = 3;
+                return {
+                    next() {
+                        return i == 0 ? { done: true } : { value: i--, done: false }
+                    },
+                    [Symbol.iterator]() {
+                        return this;
+                    }
+                }
+            }
+        }
+
+        let iterator = iterable[Symbol.iterator]();
+        console.log(iterator.next())
+        //    console.log(iterator.next())
+        //    console.log(iterator.next())
+        //    console.log(iterator.next())
+        //    console.log(iterator.next())
+
+        // for (const a of iterable) {
+        //     console.log(a);
+        // }
+
+        // for (const a of iterator) {
+        //     console.log(a);
+        // }
+
+        const p = [
+            {name: 'a', price: 10000},
+            {name: 'b', price: 30000},
+            {name: 'c', price: 80000}
+        ]
+
+        console.log(...p);
+    </script>
+
+</body>
+
+</html>
