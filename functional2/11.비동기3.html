@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비동기 3</title>
+    <script src="lib/fx.js"></script>
+</head>
+<body>
+    <script>
+        function delay(time) {
+            return new Promise(resolve => setTimeout(() => resolve(), time))
+        }
+
+        async function delayIdentity(a) {
+            await delay(1000);
+            return a;
+        }
+
+        //async 함수는 무조건 Promise를 반환함
+        async function f1() {
+            const a = await delayIdentity(10);  //프로미스 내부값이 a 에 할당 
+            const b = await delayIdentity(5);
+            log(a + b);
+            // return a + b //async 함수는 무조건 Promise를 반환함
+        }
+
+        f1();
+    </script>
+
+    <script>
+        async function delayI(a) {
+            return new Promise(resolve => setTimeout(() => resolve(a), 100) )
+        }
+
+        // async / await 는 Promise.then 을 문장으로 푸는것.!
+        //
+        // pipe (파이프라인) 는 동기든 비동기든 함수 합성을 안전하게 하기 위함!.
+
+        // async/await을 값으로 사용한뒤
+        // 파이프 라인으로 더해서 사용가능 conse r1 = pipe(~~) const r2 = pipe(~~) , r1 + r2
+    </script>
+
+    <script>
+        
+    </script>
+</body>
+</html>
