@@ -1,3 +1,5 @@
+export type a = string | number;
+
 interface Card {
     att: number,
     hp: number,
