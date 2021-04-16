@@ -1,0 +1,87 @@
+/* 인접 형제 선택자 */
+
+/* li ~ li {
+  color: blue;
+  font-style: normal;
+}
+
+ol {
+  font-style: italic;
+}
+
+div {
+  border: 3px solid black;
+}
+
+div[class] {
+  border: 2px solid yellow;
+}
+
+div[class|="list"] {
+  border-radius: 30px;
+} */
+
+/* 
+부분 일치
+
+
+가상 클래스 :
+:root
+:only-child
+:first-child
+:last-child
+:first-of-type
+:last-of-type
+:only-of-type
+
+형제 선택 
+*/
+
+div {
+  background: yellow;
+}
+
+body > div:nth-child(2n + 1) {
+  border: 3px solid red;
+}
+
+a.external:link,
+a[href^="http"]:link {
+  color: slateblue;
+}
+
+a.external:visited,
+a[href^="http"]:visited {
+  color: maroon;
+}
+
+input:focus {
+  background: green;
+}
+
+input:hover {
+  background: yellow;
+}
+
+input:active {
+  background: red;
+}
+
+input.name:required {
+  border: 2px solid blue;
+}
+
+input[type="email"]:focus {
+  background-position: 100% 50%;
+  color: white;
+}
+
+input[type="email"]:valid {
+  background: skyblue;
+  color: white;
+}
+
+input[type="email"]:invalid {
+  background: red;
+  color: white;
+}
