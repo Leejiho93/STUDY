@@ -58,3 +58,46 @@ const z: Z = {
 const x: Partial<Z> = {
     c: true,
 }
+
+//데코레이터
+
+function makeGender(target: typeof Person) {
+    console.log('hello');
+    return class extends target {
+        gender = 'male';
+    }
+}
+
+@makeGender
+class Person {
+    title: string;
+    age = 27;
+    constructor(name: string) {
+        this.title = name;
+    }
+
+    setTitle(title: string) {
+
+    }
+
+    sayTitle(): any {
+        return this.title;
+    }
+}
+
+@makeGender
+class Person2 {
+    title: string;
+    age = 27;
+    constructor(name: string) {
+        this.title = name;
+    }
+
+    setTitle(title: string) {
+
+    }
+
+    sayTitle(): any {
+        return this.title;
+    }
+}

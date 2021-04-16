@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [1, 3, 'a', 5];
+
+
+        function a(...args) {
+            console.log('args:', Array.isArray(args))
+            console.log('arr:', Array.isArray([1, 2, 3, 4]))
+        }
+
+        a("서울", "대구", "부산", "대전");
+
+        function b(arg) {
+            console.log('arg:', Array.isArray(arg))
+        }
+
+        b(1, 2, 3);
+        // console.log(...arr);
+
+        var obj = {
+            a: 1,
+            b: 2,
+        }
+
+        const hi = "hello"
+
+        var newObj = {
+            ...obj,
+            hi,
+        }
+
+        console.log('newObj: ', newObj)
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        Person.prototype.print = function print() {
+            console.log(`안녕하세요 제 이름은 ${this.name}이고 나이는 ${this.age} 입니다.`);
+        }
+
+        const a1 = new Person('bonobono', 30);
+        a1.print();
+
+    </script>
+</body>
+</html>
