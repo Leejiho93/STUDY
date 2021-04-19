@@ -1,0 +1,16 @@
+p.one {
+  font-size: 60%;
+}
+
+p.two {
+  font-size: 1.6em;
+}
+
+p.three {
+  white-space: pre;
+  /* tap-size: 2; */
+}
+
+p.four {
+  white-space: nowrap;
+}

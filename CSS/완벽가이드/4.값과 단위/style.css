@@ -1,0 +1,13 @@
+#tool {
+  /* background: blue; */
+  color: white;
+}
+a {
+  color: red;
+}
+
+#tool a {
+  /* color: inherit; */
+  color: initial;
+  text-decoration: none;
+}
