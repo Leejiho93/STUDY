@@ -1,0 +1,68 @@
+nav a {
+  display: block;
+  text-decoration: none;
+  text-transform: capitalize;
+  color: black;
+}
+
+nav a:hover {
+  color: blue;
+}
+
+.day li {
+  display: inline;
+  border-right: 1px solid;
+  padding: 0 0.33em;
+}
+
+.day li:first-child {
+  border-left: 1px solid;
+}
+
+div.divbox {
+  background-color: skyblue;
+  width: 600px;
+}
+
+div.divbox p {
+  background-color: greenyellow;
+  margin-left: 100px;
+  margin-right: 100px;
+  width: auto;
+}
+
+div.box1 {
+  border: 1px solid black;
+  height: 6em;
+}
+
+div.box1 p {
+  background-color: hotpink;
+  height: 50%;
+  /* margin: 0; */
+}
+
+div.box2 {
+  border: 1px solid black;
+  height: auto;
+}
+
+div.box2 p {
+  background-color: hotpink;
+  height: 50%;
+}
+
+div.box3 {
+  border: 1px solid black;
+  background: blueviolet;
+  margin-top: 50px;
+  padding: 10px;
+  width: 420px;
+}
+
+p.minus-margin {
+  border: 3px solid black;
+  margin-top: -50px;
+  margin-right: 10px;
+  margin-bottom: 30px;
+}
