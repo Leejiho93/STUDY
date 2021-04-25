@@ -1,5 +1,78 @@
+h1 {
+  border-top: 5px solid gray;
+  border-right: 5px dotted green;
+  border-bottom: 20px double blue;
+  border-left: 2px solid black;
+}
+
 h2 {
   padding: 2em;
   background-color: silver;
-  border: 5px solid black;
+  border: 10px solid black;
+}
+
+div.bord {
+  width: 800px;
+  height: 400px;
+  background: green;
+  border-style: solid;
+  border-color: burlywood;
+  border-width: 40px 30px;
+}
+
+div.bord a {
+  text-decoration: none;
+  color: white;
+  font-size: 2em;
+  padding: 0 1em;
+}
+
+div.circle {
+  width: 400px;
+  height: 200px;
+  border: 3px solid black;
+  border-radius: 50%;
+}
+
+div.super-circle {
+  width: 400px;
+  height: 100px;
+  border: 3px solid black;
+  border-radius: 9999px;
+  outline-style: dotted;
+}
+
+div.lr {
+  width: 400px;
+  height: 100px;
+  border: 3px solid black;
+  border-radius: 1em 5em / 1em 5em;
+}
+
+header {
+  background-color: goldenrod;
+}
+
+header.hd h3 {
+  margin: 1em;
+}
+
+div.container {
+  background: hsl(42, 80%, 80%);
+  border: 1px solid;
+}
+
+div.container .two {
+  border: 1px solid black;
+  border-right: none;
+  margin: 1em -1px 1em 25%;
+  background: white;
+  text-align-last: center;
+  color: red;
+}
+
+div.container .four {
+  background-color: plum;
+  margin: 1em 3em -3em -3em;
+  color: white;
 }
