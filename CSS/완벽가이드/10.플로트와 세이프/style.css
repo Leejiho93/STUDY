@@ -1,0 +1,25 @@
+div {
+    width: 300px;
+    height: 400px;
+}
+
+div.div1 {
+    /* display: inline-block; */
+    background-color: yellow;
+}
+
+div.div2 {
+    background-color: coral;
+    float: right;
+}
+
+div.text_box {
+    width: 800px;
+    border: 3px solid black;
+}
+
+p.aside {
+    float: left;
+    width: 15em;
+    border: 1px solid red;
+}

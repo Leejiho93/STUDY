@@ -1,0 +1,14 @@
+.container {
+    position: relative;
+}
+
+div.ps {
+    position: absolute;
+    background-color: tomato;
+    top:2px;
+    right: 5px;
+    width:200px;
+    height: 100px;
+  
+
+}
