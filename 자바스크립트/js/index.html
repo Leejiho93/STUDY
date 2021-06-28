@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function SuperType() {
+        //     this.colors = ['red', 'blue', 'green'];
+        // }
+        // function SubType() {
+
+        // }
+        // SubType.prototype = new SuperType();
+        
+        // const instance1 = new SubType();
+        // const instance2 = new SubType();
+        // console.log(instance1.colors);
+        // instance1.colors.push('yellow');
+        // console.log('instance1.colors: ',instance1.colors);
+        // console.log('instance2.colors: ',instance2.colors);
+
+        //***** 프로토타입 상속  ******//
+        function object(o) {
+            function F() {};
+            F.prototype = o;
+            return new F();
+        }
+
+        function createAnother(original) {
+            let clone = object(original);
+            clone.sayHi = function() {
+                console.log('hi')
+            }
+            return clone;
+        }
+
+        // const person = {
+        //     name: "bono",
+        //     friends: ['one', 'two', 'three'],
+        // }
+
+        // let obPerson = object(person);
+        // let anotherPerson = createAnother(person);
+        
+        // anotherPerson.sayHi();
+
+        // console.log('ob: ',obPerson)
+        // console.log('another: ',anotherPerson)
+        
+            
+        // function inheritPrototype(subType, supType) {
+        //     let prototype = object(supType.prototype);
+        //     prototype.constructor = subType;
+        //     subType.prototype = prototype;
+        // }
+
+        // function SuperType(name) {
+        //     this.name = name;
+        //     this.colors = ['red', 'blue', 'green'];
+        // }
+        // SuperType.prototype.sayName = function() {
+        //     console.log(this.name);
+        // }
+        // function SubType(name, age) {
+        //     SuperType.call(this, name);
+        //     this.age = age;
+        // }
+        // SubType.prototype = inheritPrototype(SubType, SuperType);
+        // SubType.prototype.constructor = SubType;
+        // SubType.prototype.sayAge = function() {
+        //     console.log(this.age);
+        // }
+
+        // function createFunction() {
+        //     var result = new Array();
+        //     for (var i = 0; i < 10; i++) {
+        //         result[i] = function(n) {
+        //             return function() {
+        //                 return n
+        //             };
+        //             // return n;
+        //         }(i)
+        //     }
+
+        //     return result;
+        // }
+
+     
+        // for (let i = 0; i< 10; i++) {
+        //     console.log(createFunction()[i]())
+        // }
+
+        // let data = new FormData();
+        // data.append('lol', 'sona');
+        // console.log(data.get('lol'));
+
+        // const friend = () => {
+        //     console.log('outer this: ',this);
+        //         return () => {
+        //             console.log('inner this: ', this);
+        //         }
+        // }
+
+        // friend()()
+
+        // console.log(
+        //   (() => {}).prototype
+        // )
+        // console.log(
+        //     (function() {}).prototype
+        // )
+
+        var zeroVector = null;
+
+        function Vector(x, y) {
+            if (x === 0 && y === 0) {
+                if (zeroVector !== null) {
+                // Reuse the same instance
+                return zeroVector;
+                }
+                zeroVector = this;
+            }
+            this.x = x;
+            this.y = y;
+        }
+
+        var a = new Vector(1, 1);
+        console.log('a: ', a.x, a.y);
+        console.log('a z:', zeroVector)
+        
+        var b = new Vector(0, 0);
+        console.log('b: ', b.x, b.y);
+        console.log('b z:', zeroVector)
+        
+        var c = new  Vector(0, 0);
+        console.log('c: ', c.x, c.y);
+        console.log('c z:', zeroVector)
+
+        var d = new  Vector(0, -1);
+        console.log('c: ', d.x, d.y);
+        console.log('d z:', zeroVector)
+
+        console.log('a === b ? ', a === b)
+        console.log('b === c ? ', b === c)
+        console.log('c === d ? ', c === d)
+
+
+    </script>
+</body>
+</html>

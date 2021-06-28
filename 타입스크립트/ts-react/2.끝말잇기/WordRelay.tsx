@@ -9,9 +9,7 @@ const WordRelay = () => {
   const inputEl = useRef<HTMLInputElement>(null);
 
   const onSubmitForm = useCallback<
-    (e: React.FormEvent<HTMLFormElement>) => void
-  >(
-    (e) => {
+    (e: React.FormEvent<HTMLFormElement>) => void>((e) => {
       e.preventDefault();
       const input = inputEl.current;
       if (word[word.length - 1] === value[0]) {
